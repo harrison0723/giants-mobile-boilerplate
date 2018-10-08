@@ -17,7 +17,7 @@
 3. **No build config**: Giants Mobile is based on Expo’s [create-react-native-app](https://github.com/react-community/create-react-native-app).
 4. **No grunt work**: Giants Mobile has auth, loading, error state all covered.
 5. **Minimum UI code**: Giants Mobile uses Avocode’s [Nachos UI](https://github.com/nachos-ui/nachos-ui).
-6. **Maintainable**: Giants has a shallow, component-like file structure.
+6. **Maintainable**: Giants Mobile has a shallow, component-like file structure.
 
 ## Shut up, show me the app
 Clone the repository
