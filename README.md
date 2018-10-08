@@ -40,7 +40,7 @@ expo publish
 ```
 
 ## Credits
-_The Moai icon is created by Mr. Bozo from thenounproject.com._
+_The Moai icon was created by Mr. Bozo from thenounproject.com._
 
 ## Web
 Giants Mobile Boilerplate is designed to complement [Giants Boilerplate (Web)](https://github.com/harrison0723/giants-boilerplate).
