@@ -18,7 +18,7 @@
 4. **No grunt work**: Giants Mobile has auth, loading, error state all covered.
 5. **Minimum UI code**: Giants Mobile uses Avocode’s [Nachos UI](https://github.com/nachos-ui/nachos-ui).
 6. **Maintainable**: Giants Mobile has a shallow, component-like file structure.
-7. **Performant**: Giants Mobile has no native hybrid code. Pure JavaScript!
+7. **Pure JavaScript**: Giants Mobile has no native hybrid code.
 
 ## Shut up, show me the app
 Clone the repository
