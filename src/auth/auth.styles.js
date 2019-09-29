@@ -8,7 +8,7 @@ export default StyleSheet.create({
     },
     authContainer: {
         flex: 1,
-        backgroundColor: '#fff',
+        backgroundColor: "#F5FCFF",
         padding: 20
     },
     error: {
@@ -17,5 +17,11 @@ export default StyleSheet.create({
     errorText: {
         textAlign: 'center',
         color: '#cc3300'
+    },
+    input: {
+        backgroundColor: 'white',
+        marginBottom: 20,
+        padding: 15,
+        fontSize: 15
     }
 })

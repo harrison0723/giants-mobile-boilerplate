@@ -1,8 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { View, StatusBar } from 'react-native'
+import { View, StatusBar, Text } from 'react-native'
+import Button from '../common/components/button'
 import styles from './modal-page.styles'
-import { H1, P, Button } from 'nachos-ui'
 
 export class ModalPageScreen extends React.Component {
     static navigationOptions = {
@@ -15,10 +15,13 @@ export class ModalPageScreen extends React.Component {
         return (
             <View style={styles.container}>
                 <StatusBar hidden />
-                <H1>{page.title}</H1>
-                <P>{page.content}</P>
+                <Text style={styles.title}>{page.title}</Text>
+                <Text>{page.content}</Text>
                 <View style={styles.closeButton}>
-                    <Button onPress={() => this.props.navigation.goBack(null)}>
+                    <Button 
+                        onPress={() => this.props.navigation.goBack(null)}
+                        textStyle={{ color: 'indianred' }}
+                        type="white" size="normal">
                         Exit Fullscreen
                     </Button>
                 </View>

@@ -1,9 +1,11 @@
 import React from 'react'
 import { Platform } from 'react-native'
-import { createSwitchNavigator, createStackNavigator, createBottomTabNavigator } from 'react-navigation'
+import { createAppContainer, createSwitchNavigator } from 'react-navigation'
+import { createStackNavigator } from 'react-navigation-stack'
+import { createBottomTabNavigator } from 'react-navigation-tabs'
 import TabBarIcon from './common/components/icon'
 import AuthScreen from './auth/auth'
-import AuthLoadingScreen from './auth/auth-loading'
+import AuthLoadingScreen from './auth/modules/loading'
 import HomeScreen from './home/home'
 import PageScreen from './page/page'
 import NestedPageScreen from './nested-page/nested-page'
@@ -21,7 +23,7 @@ HomeStack.navigationOptions = {
     tabBarIcon: ({ focused }) => (
         <TabBarIcon
             focused={focused}
-            name={Platform.OS === 'ios' ? 'ios-home' : 'md-home'}
+            name='file'
         />
     )
 }
@@ -31,7 +33,7 @@ PageStack.navigationOptions = {
     tabBarIcon: ({ focused }) => (
         <TabBarIcon
             focused={focused}
-            name={Platform.OS === 'ios' ? 'ios-cube' : 'md-cube'}
+            name='activity'
         />
     )
 }
@@ -41,7 +43,7 @@ SettingsStack.navigationOptions = {
     tabBarIcon: ({ focused }) => (
         <TabBarIcon
             focused={focused}
-            name={Platform.OS === 'ios' ? 'ios-settings' : 'md-settings'}
+            name='user'
         />
     )
 }
@@ -60,8 +62,14 @@ const RootNavigator = createStackNavigator({
     headerMode: 'none'
 })
 
-export default createSwitchNavigator({
+const RootSwitchNavigator = createSwitchNavigator({
     AuthLoading: AuthLoadingScreen,
     Auth: AuthStack,
     Root: RootNavigator
-}, { initialRouteName: 'AuthLoading' })
+}, {
+    initialRouteName: 'AuthLoading'
+})
+
+const App = createAppContainer(RootSwitchNavigator)
+
+export default App

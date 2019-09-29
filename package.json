@@ -3,21 +3,25 @@
   "main": "node_modules/expo/AppEntry.js",
   "private": true,
   "scripts": {
-    "start": "expo start",
+    "dev": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios"
   },
   "dependencies": {
-    "expo": "30.0.0",
-    "firebase": "5.1.0",
-    "nachos-ui": "0.2.0-beta.1",
-    "react": "16.3.1",
-    "react-native": "0.55.4",
-    "react-navigation": "^2.16.0",
-    "react-redux": "^5.0.7",
-    "react-redux-firebase": "^2.1.8",
-    "redux": "^4.0.0",
-    "redux-firestore": "^0.5.8",
+    "expo": "35.0.0",
+    "firebase": "^7.0.0",
+    "react": "16.8.3",
+    "react-native": "https://github.com/expo/react-native/archive/sdk-35.0.0.tar.gz",
+    "react-native-gesture-handler": "~1.3.0",
+    "react-native-reanimated": "~1.2.0",
+    "react-native-svg": "~9.9.2",
+    "react-navigation": "^4.0.6",
+    "react-navigation-stack": "^1.9.1",
+    "react-navigation-tabs": "^2.5.5",
+    "react-redux": "^7.1.1",
+    "react-redux-firebase": "^3.0.0-beta.2",
+    "redux": "^4.0.4",
+    "redux-firestore": "^0.9.0",
     "redux-thunk": "^2.3.0"
   }
 }

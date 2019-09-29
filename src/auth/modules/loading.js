@@ -1,8 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { checkAuthState } from './actions'
+import { checkAuthState } from '../tools/actions'
 import { ActivityIndicator, StatusBar, View } from 'react-native'
-import styles from './auth.styles'
+import styles from '../auth.styles'
 
 export class AuthLoadingScreen extends React.Component {
     constructor(props) {

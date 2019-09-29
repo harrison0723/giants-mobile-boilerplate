@@ -17,9 +17,6 @@ export default StyleSheet.create({
     },
     email: {        
         alignItems: 'center',
-        marginBottom: 20
-    },
-    button: {
-        height: 50
+        marginVertical: 20
     }
 })

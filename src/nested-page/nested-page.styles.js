@@ -7,6 +7,10 @@ export default StyleSheet.create({
         padding: 20,
         paddingBottom: 70
     },
+    title: {
+        fontSize: 30,
+        marginBottom: 20
+    },
     button: {
         position: 'absolute',
         bottom: 0,

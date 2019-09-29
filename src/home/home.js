@@ -1,10 +1,9 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { firestoreConnect, isLoaded } from 'react-redux-firebase'
-import { ScrollView, FlatList, TouchableOpacity, View } from 'react-native'
-import Logo from './components/logo'
+import { ScrollView, FlatList, TouchableOpacity, View, Text } from 'react-native'
+import Logo from './modules/logo'
 import styles from './home.styles'
-import { Card } from 'nachos-ui'
 
 export class HomeScreen extends React.Component {
     static navigationOptions = {
@@ -25,11 +24,9 @@ export class HomeScreen extends React.Component {
                             renderItem={({ item }) => {
                                 return (
                                     <TouchableOpacity onPress={() => this.openNestedPage(item.id)}>
-                                        <Card
-                                            style={{ marginTop: 10 }}
-                                            image={'https://www.publicdomainpictures.net/pictures/200000/nahled/plain-gray-background.jpg'}
-                                            footerContent={item.title}
-                                        />
+                                        <View style={styles.block}>
+                                            <Text>{item.title}</Text>
+                                        </View>
                                     </TouchableOpacity>
                                 )
                             }}

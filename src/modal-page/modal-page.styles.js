@@ -6,6 +6,10 @@ export default StyleSheet.create({
         backgroundColor: "#F5FCFF",
         padding: 20
     },
+    title: {
+        fontSize: 30,
+        marginBottom: 20
+    },
     closeButton: {
         position: 'absolute',
         left: 0,

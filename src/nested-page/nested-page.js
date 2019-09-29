@@ -2,17 +2,17 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { firestoreConnect, isLoaded } from 'react-redux-firebase'
 import { Platform } from 'react-native'
-import { TouchableOpacity, View } from 'react-native'
-import { Icon } from 'expo'
+import { TouchableOpacity, View, Text } from 'react-native'
+import { Ionicons } from '@expo/vector-icons'
+import Button from '../common/components/button'
 import styles from './nested-page.styles'
-import { Button, H1, P } from 'nachos-ui'
 
 export class NestedPageScreen extends React.Component {
     static navigationOptions = ({ navigation }) => {
         return {
             headerLeft: (
                 <TouchableOpacity onPress={() => navigation.goBack(null)}>
-                    <Icon.Ionicons
+                    <Ionicons
                         name={Platform.OS === 'ios' ? 'ios-arrow-back' : 'md-arrow-back'}
                         size={26}
                         style={{ marginLeft: 15, width: 30 }}
@@ -33,10 +33,14 @@ export class NestedPageScreen extends React.Component {
         if (isLoaded(page)) {
             return (
                 <View style={styles.container}>
-                    <H1>{page.title}</H1>
-                    <P>{page.content}</P>
+                    <Text style={styles.title}>{page.title}</Text>
+                    <Text>{page.content}</Text>
                     <View style={styles.button}>
-                        <Button onPress={this.openModalPage}>Fullscreen Mode</Button>
+                        <Button 
+                            onPress={this.openModalPage}
+                            type="primary" size="normal">
+                            Fullscreen Mode
+                        </Button>
                     </View>
                 </View>
             )

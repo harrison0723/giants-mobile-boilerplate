@@ -1,12 +1,21 @@
 import React from 'react'
-import { Platform, StatusBar, StyleSheet, View } from 'react-native'
-import { AppLoading, Asset, Font, Icon } from 'expo'
+import { StyleSheet, View } from 'react-native'
+import { AppLoading, Icon } from 'expo'
 import { Provider } from 'react-redux'
-import { ThemeProvider } from 'nachos-ui'
+import { ReactReduxFirebaseProvider } from 'react-redux-firebase'
+import { createFirestoreInstance } from 'redux-firestore'
 import AppNavigator from './src/navigation'
+import firebase from './src/firebase'
 import { configureStore } from './src/store'
 
 const store = configureStore()
+
+const reactReduxFirebaseProps = { 
+    firebase, 
+    config: { enableLogging: true  },
+    dispatch: store.dispatch,
+    createFirestoreInstance 
+}
 
 export default class App extends React.Component {
     state = {
@@ -25,12 +34,11 @@ export default class App extends React.Component {
         } else {
             return (
                 <Provider store={store}>
-                    <ThemeProvider>
+                    <ReactReduxFirebaseProvider {...reactReduxFirebaseProps}>
                         <View style={styles.container}>
-                            {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
                             <AppNavigator />
                         </View>
-                    </ThemeProvider>
+                    </ReactReduxFirebaseProvider>
                 </Provider>
             )
         }
@@ -41,12 +49,12 @@ export default class App extends React.Component {
             // Asset.loadAsync([
             //     require('./assets/path/to/image')
             // ]),
-            Font.loadAsync({
-                // Import Ionicons
-                ...Icon.Ionicons.font,
-                // Import custom font
-                'space-mono': require('./assets/fonts/SpaceMono-Regular.ttf'),
-            }),
+            // Font.loadAsync({
+            //     // Import Ionicons
+            //     ...Icon.Ionicons.font,
+            //     // Import custom font
+            //     'space-mono': require('./assets/fonts/SpaceMono-Regular.ttf'),
+            // }),
         ])
     }
 

@@ -1,9 +1,9 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { login } from './actions'
-import { View, Text, KeyboardAvoidingView, TouchableWithoutFeedback, Keyboard } from 'react-native'
+import { login } from './tools/actions'
+import { View, Text, TextInput, KeyboardAvoidingView, TouchableWithoutFeedback, TouchableOpacity, Keyboard } from 'react-native'
+import Button from '../common/components/button'
 import styles from './auth.styles'
-import { Input, Button } from 'nachos-ui'
 
 export class AuthScreen extends React.Component {
     static navigationOptions = {
@@ -27,27 +27,30 @@ export class AuthScreen extends React.Component {
                             <Text style={styles.errorText}>
                                 {auth.error.message}
                             </Text>
-                        </View>}
-                    <Input
-                        style={{ marginBottom: 20 }}
+                        </View>
+                    }
+                    <TextInput
+                        onChangeText={(email) => this.setState({ email })}
+                        style={styles.input}
+                        value={email}
                         disabled={auth.loading}
                         placeholder="Email"
-                        keyboardType={"email-address"}
-                        value={email}
-                        onChangeText={(email) => this.setState({ email })}
+                        keyboardType="email-address"
+                        underlineColorAndroid="transparent"
                     />
-                    <Input
-                        style={{ marginBottom: 20 }}
-                        disabled={auth.loading}
-                        placeholder="Password"
-                        secureTextEntry={true}
-                        value={password}
+                    <TextInput
                         onChangeText={(password) => this.setState({ password })}
-                    />
-                    <Button 
-                        type='primary' 
+                        style={styles.input}
+                        value={password}
                         disabled={auth.loading}
-                        onPress={() => login({ email, password }, navigation)}>
+                        secureTextEntry={true}
+                        placeholder="Password"
+                        underlineColorAndroid="transparent"
+                    />
+                    <Button
+                        onPress={() => login({ email, password }, navigation)}
+                        disabled={auth.loading}
+                        type="white" size="normal">
                         Login
                     </Button>
                 </KeyboardAvoidingView>
